@@ -1,0 +1,50 @@
+<div class="header-container">
+    <header class="header">
+        <button class="sidebar-button" (click)="showMenu()" id="sidebarButton">
+            <span class="material-icons-outlined"><i class="fas fa-bars"></i></span>
+        </button>
+    <!--     <div v-if="trash == true">
+            <button  >Empty Trash Now</button>
+        </div> -->
+        <form v-if="home == true"  class="input-search">
+            <input type="text" v-model="noteToSearch" name="search" id="note-name" placeholder="Search your notes"
+                style="font-family:Arial, FontAwesome"  required>
+            <button type="submit">
+                <span class="material-icons-outlined"><i class="fas fa-arrow-right"></i></span>
+            </button>
+        </form>
+
+        <div class="right-component">
+            <div class="profile-image" id="profileImage">
+                     <img v-if="!user.image" src="../assets/img/profile.png" alt="Undisplayable image" class="dropdown-user-img">
+                
+                     <img v-else :src="url+'api/auth/get-avatar/'+user.image" alt="Undisplayable image" class="dropdown-user-img" >
+            </div>
+        </div>
+    </header>
+
+    <div class="dropdown" id="profileInfo">
+        <div class="user-data">
+            <a to="/profile" class="user-image">
+                <img v-if="!user.image" src="../assets/img/profile.png" alt="Undisplayable image" >
+                <img v-else :src="url+'api/auth/get-avatar/'+user.image" alt="Undisplayable image"  >
+
+                <button class="material-icons-outlined icon-camera"><i class="fas fa-pencil-alt"></i></button>
+            </a>
+
+            <h2 class="username">Santiago Maldonado</h2>
+            <span class="email">santiagodmaldon@gmail.com</span>
+        </div>
+
+        <div class="user-options">
+            <a to="/profile"><span class="material-icons-round"><i class="fas fa-user-circle"></i></span>
+                Profile</a>
+
+            <a href="#" ><span class="material-icons-outlined"><i
+                        class="fas fa-sign-out-alt"></i></span> Log out</a>
+        </div>
+
+        <span id="profileClose" class="material-icons-outlined close-bttn"><i class="fas fa-times"></i></span>
+    </div>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="menu" id="menu">
+    <div class="overlay"  (click)="hideMenu()"></div>
+
+    <div class="menu-container">
+
+      <span class="material-icons-outlined bttn-close"  (click)="hideMenu()"><i class="fas fa-times"></i> </span>
+
+      <ul class="options">
+        <div class="general">
+
+          <li>
+            <a active-class="active-link" to="/home">
+              <span class="material-icons-outlined icons"><i class="fas fa-lightbulb"></i></span>
+              Notes
+          </a>
+          </li>
+
+
+          <li class="">
+              <a to="/trash" active-class="active-link">
+              <span class="material-icons-outlined icons"><i class="fas fa-trash"></i></span>
+              Trash
+              </a>
+          </li>
+        </div>
+
+        <div class="labels">
+          <h3 class="title">Labels</h3>
+          <span v-if="labels.length >= 1">
+            <li  v-for="label in labels" v-bind:key="label">
+
+              
+                <a :href="'/label/'+label.id"><span class="material-icons-outlined icons"><i class="fas fa-tag"></i></span>
+                  Contenido de la tag</a>
+            </li>
+
+          </span>
+
+          <li class="edit_label-bttn"  data-toggle="modal" data-target="#exampleModalCenter" >
+            <button>
+              <span class="material-icons-outlined icons"><i class="fas fa-tag"></i></span>
+              Edit labels
+            </button>
+          </li>
+
+          <li class="edit_label-bttn"   data-toggle="modal" data-target="#exampleModalCenter" >
+            <button>
+              <span class="material-icons-outlined icons"><i class="fas fa-tag"></i></span>
+              Create new label
+            </button>
+          </li>
+        </div>
+      </ul>
+
+    </div>
+  </div>
